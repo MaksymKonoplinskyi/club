@@ -1,0 +1,19 @@
+
+.CountWithIcon {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 10px 0;
+  
+    li {
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      margin-right: 20px;
+      opacity: 0.5;
+  
+      svg {
+        font-size: 16px;
+        margin-right: 5px;
+      }
+    }
+  }
