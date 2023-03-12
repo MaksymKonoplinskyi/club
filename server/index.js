@@ -12,12 +12,15 @@ import checkAftorComent from './utils/checkAftorComent.js';
 import checkAftorPost from './utils/checkAftorPost.js';
 
  
-  
+mongoose.set('strictQuery', true);  
 mongoose.connect(process.env.MONGODB_URL)
-.then(() => console.log('DB ok'))
+    .then(() => ( 
+        
+        console.log('DB ok')
+    ))
     .catch((err) => console.log('DB err', err)) 
 
-const app = express()
+const app = express()    
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {
