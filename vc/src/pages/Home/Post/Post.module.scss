@@ -1,0 +1,116 @@
+.root {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+
+  &:hover {
+
+
+    .editButtons {
+      opacity: 1;
+    }
+  }
+
+}
+
+
+
+.image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+.content {
+  margin: 30px 0 50px;
+
+  p {
+    font-size: 22px;
+    line-height: 36px;
+  }
+}
+
+.wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.3;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+
+}
+.countWithIcon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+
+  li {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 15px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+.postDetails {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 20px;
+    opacity: 0.5;
+
+    svg {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+}
+
+
+.editButtons {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+// @media screen and (max-width: 767px)  {
+  
+// }
