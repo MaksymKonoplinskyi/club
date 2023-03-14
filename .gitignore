@@ -3,4 +3,3 @@ node_modules
 # uploads
 package-lock.json
 client/.env
-client/.env
