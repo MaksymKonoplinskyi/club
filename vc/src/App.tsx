@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+// import Container from "@mui/material/Container";
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+
+// import { Header } from "./components";
+// import { Home, FullPost, Registration, AddPost, Login } from "./pages";
+// import React from "react";
+// import { fetchAuthMe } from "./redux/slices/auth";
+// import { Profile } from "./pages/Profile/Profile";
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+// const dispatch = useDispatch()
+
+
+// React.useEffect(() => {
+//   dispatch(fetchAuthMe())
+// }, [dispatch])
 
   return (
-    <div className="App">
+    <> 
+      
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        
+        <BrowserRouter>
+          {/* <Header /> */}
+        <Routes>
+          {/* <Route path="/" element = {<Home />} />
+          <Route path="/:curentSort" element = {<Home />} />
+          <Route path="/tag/:tagName/:curentSort" element = {<Home />} />
+          <Route path="/fullPost/:id" element = {<FullPost />} />
+          <Route path="/posts/:id/edit" element = {<AddPost />} />
+          <Route path="/add-post" element = {<AddPost />} />
+          <Route path="/login" element = {<Login />} />
+          <Route path="/register" element = {<Registration />} />
+          <Route path="/profile" element = {<Profile/>} /> */}
+          
+          </Routes>
+          </BrowserRouter>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
