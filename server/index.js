@@ -11,7 +11,7 @@ import { UserController, PostController, CommentController } from './controllers
 import checkAftorComent from './utils/checkAftorComent.js';
 import checkAftorPost from './utils/checkAftorPost.js';
 
-const options = { dbName: "blog" }
+const options = { dbName: "club" }
 mongoose.set('strictQuery', true);  
 mongoose.connect(process.env.MONGODB_URL, options)
     .then(() => ( 
