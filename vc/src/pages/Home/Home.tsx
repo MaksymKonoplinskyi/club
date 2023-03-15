@@ -12,7 +12,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
 
-export const Home: React.FC  = () => {
+export const Home: React.FC = () => {
   // const dispatch = useDispatch()
   const navigate = useNavigate()
   // const curentUserData = useSelector(state => state.auth.curentUserData)
@@ -43,7 +43,6 @@ export const Home: React.FC  = () => {
 
   return (
     <>
-      Рщьу
       {/* <Grid container spacing={8} columnSpacing={{ sm: 2, md: 3 }}>
         <Grid xs={12} sm={8} md={9} columnSpacing={{ xs: 1, sm: 2 }} item>
           <ToggleButtonGroup
@@ -70,7 +69,8 @@ export const Home: React.FC  = () => {
           <TagsBlock tagSort={'popular'} />
         </Grid>}
       </Grid> */}
-      {/* <TagsBlock /> */}
+      <TagsBlock />
+      {/* Home */}
     </>
   );
 };

@@ -6,7 +6,19 @@ export const fetchTags = createAsyncThunk<ITag[], TagSort, {}>(
   "posts/fetchTags",
   async tagSort => {
     const { data } = await axios.get(`/tags/${tagSort}`)
-    return data
+   
+    const resData: ITag[] = []
+    data.forEach((elm: string, i:number) => {
+      resData.push({
+        name: elm ,
+        id: i
+      })
+    });
+  
+    console.log(data);
+    console.log(resData);
+    
+    return resData
   }
 )
 // type Tag = {

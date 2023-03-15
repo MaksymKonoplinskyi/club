@@ -19,14 +19,21 @@ export const TagsBlock: React.FC = () => {
   }, [dispatch, tags.sort])
 
   return (
-    // <SideBlock 
+    <>
+      <div>TegList</div>
+      {/* // <SideBlock
     //   title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
     //   {tags.isLoading ? (
     //     // <TagsSkeleton />
     //   ) : (
     //     <TagsList tagsItems={tags.items} />
     //   )}
-    // </SideBlock>
-    <TagsList tagsItems={tags.items} />
-  );
-};
+    // </SideBlock> */}
+      {tags.items ? (
+        <TagsList tagsItems={tags.items} />
+      ) : <div>TegList</div>}
+
+      
+    </>
+  )
+}

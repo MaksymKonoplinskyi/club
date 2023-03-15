@@ -21,32 +21,41 @@ export const TagsList: React.FC<TagsListProps> = (props) => {
   const {tagsItems} = props
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
-  const { curentSort, tagName} = useParams()
-  const sort = curentSort || 'popular'
+  console.log(tagsItems);
+  
+  // const { curentSort, tagName} = useParams()
+  // const sort = curentSort || 'popular'
 
-  const handleTagClick = (name:string) => {
-    const params = { tagName: name, sort: sort }
-    // dispatch(fetchPostsWithTag(params))
-    navigate(`/tag/${name}/${sort}`)
-  };
+  // const handleTagClick = (name:string) => {
+  //   const params = { tagName: name, sort: sort }
+  //   dispatch(fetchPostsWithTag(params))
+  //   navigate(`/tag/${name}/${sort}`)
+  // };
 
   return (
-
-    <List>
-      {tagsItems.map((item:ITag) => (
-        <ListItem key={item.id} value={item.name} disablePadding>
-          <ListItemButton
-            selected={tagName === item.name}
-            onClick={() => handleTagClick(item.name)}
-          >
-            <ListItemIcon >
-              <TagIcon />
-            </ListItemIcon>
-            <ListItemText primary={item.name} />
-          </ListItemButton>
-        </ListItem>
+    <div>
+      {tagsItems.map((item: ITag) => (
+        <p key={item.id}>{item.name}</p>
+        
+         
       ))}
-    </List>
+
+</div>
+    // <List>
+    //   {tagsItems.map((item:ITag) => (
+    //     <ListItem key={item.id} value={item.name} disablePadding>
+    //       <ListItemButton
+    //         // selected={tagName === item.name}
+    //         // onClick={() => handleTagClick(item.name)}
+    //       >
+    //         <ListItemIcon >
+    //           <TagIcon />
+    //         </ListItemIcon>
+    //         <ListItemText primary={item.name} />
+    //       </ListItemButton>
+    //     </ListItem>
+    //   ))}
+    // </List>
 
   );
 };
