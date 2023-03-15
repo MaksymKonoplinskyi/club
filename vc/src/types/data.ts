@@ -21,7 +21,7 @@ export interface IFullPostItem {
 }
 
 export interface IFullPost {
-  _id: null
+  _id: string
   title: string
   text: string
   viewsCount: number
@@ -34,13 +34,21 @@ export interface IFullPost {
 }
 
 export interface IPost {
-    _id: null
-    title: string
-    // text: string
-    viewsCount: number
-    commentsCount: number
-    user: string
-    isLoading: boolean
-    imageUrl: string
-    tags: ITag[]
-  }
+  _id: string
+  title: string
+  // text: string
+  viewsCount: number
+  commentsCount: number
+  user: string
+  isLoading: boolean
+  imageUrl: string
+  tags: ITag[]
+}
+
+export interface IUser {
+  _id: string
+  email: string
+  fullName: string
+  passwordHash: string
+  avatarUrl?: string
+}
