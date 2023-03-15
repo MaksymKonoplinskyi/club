@@ -1,10 +1,12 @@
 /// <reference types="vite/client" />
 
+declare const REACT_APP_API_URL: string
+
 interface ImportMetaEnv {
-    readonly VITE_REACT_APP_API_URL: string
-    // more env variables...
-  }
-  
-  interface ImportMeta {
-    readonly env: ImportMetaEnv
-  }
+  readonly REACT_APP_API_URL: string
+  // more env variables...
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

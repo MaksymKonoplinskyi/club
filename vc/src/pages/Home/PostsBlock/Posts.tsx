@@ -17,9 +17,9 @@ export const Posts: React.FC<IPosts> = ({
         <><Grid container spacing={1} columnSpacing={{ md: 2 }}>
            
         {items.map((obj, index) =>
-             <Grid xs={12} sm={12} md={12} lg={6}  item>
+             <Grid key={index} xs={12} sm={12} md={12} lg={6}  item>
             <Post
-                key={index}
+                key={obj._id}
                 postItem={obj}
                 // commentsCount={3}
                 isEditable={currentUserId === obj.user}
