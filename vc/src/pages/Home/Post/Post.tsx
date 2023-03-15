@@ -6,23 +6,28 @@ import DeleteIcon from '@mui/icons-material/Clear'
 import EditIcon from '@mui/icons-material/Edit'
 import styles from './Post.module.scss'
 import { fetchRemovePost } from '../../../redux/slices/posts'
-import { PostCreationInfo } from '../../../components/PostInfo/PostCreationInfo'
-import { CountWithIcon } from '../../../components/PostInfo/CountWithIcon'
-import { PostsTags } from './PostsTags'
+// import { PostCreationInfo } from '../../../components/PostInfo/PostCreationInfo'
+// import { CountWithIcon } from '../../../components/PostInfo/CountWithIcon'
+// import { PostsTags } from './PostsTags'
+import { IPost } from '../../../types/data'
 
+interface IPostProps {
+  postItem: IPost
+  isEditable: boolean
+}
 
-export const Post = ({
+export const Post: React.FC<IPostProps> = ({
   postItem,
   isEditable,
 }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const onClickRemove = () => {
-    if (window.confirm('Вы действитльно хотите удалить статью?')) {
-      dispatch(fetchRemovePost(postItem._id))
-    }
-  };
+  // const onClickRemove = () => {
+  //   if (window.confirm('Вы действитльно хотите удалить статью?')) {
+  //     dispatch(fetchRemovePost(postItem._id))
+  //   }
+  // };
   const onClickPost = () => navigate(`/fullPost/${postItem._id}`)
 
 
@@ -41,13 +46,13 @@ export const Post = ({
               <EditIcon />
             </IconButton>
           </Link>
-          <IconButton onClick={onClickRemove} color="secondary">
+          {/* <IconButton onClick={onClickRemove} color="secondary">
             <DeleteIcon />
-          </IconButton>
+          </IconButton> */}
         </div>
       )}
       <div className={styles.wrapper}>
-        <PostCreationInfo {...postItem.user} createdAt={postItem.createdAt} />
+        {/* <PostCreationInfo {...postItem.user} createdAt={postItem.createdAt} /> */}
       </div>
 
       {postItem.imageUrl && (
@@ -64,9 +69,9 @@ export const Post = ({
           {postItem.title}
         </h2>
 
-        <PostsTags  tags={postItem.tags} />
+        {/* <PostsTags  tags={postItem.tags} /> */}
         <div className={styles.countWithIcon} onClick={onClickPost}>
-          <CountWithIcon onClick={onClickPost} countsData={countsData} />
+          {/* <CountWithIcon onClick={onClickPost} countsData={countsData} /> */}
         </div>
       </div>
     </div>

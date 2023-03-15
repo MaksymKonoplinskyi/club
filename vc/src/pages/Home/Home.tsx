@@ -1,11 +1,11 @@
 import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hook';
 // import Grid from '@mui/material/Grid';
 import { TagsBlock } from '../../components/TagsBlock/TagsBlock';
 
-// import { fetchPosts, fetchPostsWithTag } from '../../redux/slices/posts';
+import { fetchPosts, fetchPostsWithTag } from '../../redux/slices/posts';
 import { useNavigate, useParams } from 'react-router-dom';
-// import { PostsBlock } from './PostsBlock/PostsBlock';
+import { PostsBlock } from './PostsBlock/PostsBlock';
 
 // import ToggleButton from '@mui/material/ToggleButton';
 // import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -13,14 +13,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 export const Home: React.FC = () => {
-  // const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  // const curentUserData = useSelector(state => state.auth.curentUserData)
-  // const posts = useSelector(state => state.posts)
+  const currentUserData = useAppSelector(state => state.auth.currentUserData)
+  const posts = useAppSelector(state => state.posts)
   // const hasSideBar = useMediaQuery((theme) => theme.breakpoints.up('sm'));
 
 
-  // const isPostsLoading = posts.status === 'loading'
+  const isPostsLoading = useAppSelector(state => state.posts.isLoading)
+  //  const postSortByTag = useAppSelector(state => state.posts.postSortByTag)
   // const { curentSort, tagName } = useParams()
 
   // const handleChangeCurentSort = (e, newSort) => {
@@ -31,14 +32,13 @@ export const Home: React.FC = () => {
   //   )
   // }
 
-  // React.useEffect(() => {
-  //   const params = { tagName: tagName, sort: curentSort || 'popular' }
-  //   tagName ? (
-  //     dispatch(fetchPostsWithTag(params))
-  //   ) : (
-  //     dispatch(fetchPosts(curentSort || 'popular'))
-  //   )
-  // }, [dispatch, curentSort, tagName]);
+  React.useEffect(() => {
+    posts.postSortByTag ? (
+      dispatch(fetchPostsWithTag({ tagName: posts.postSortByTag, sort: posts.postSort }))
+    ) : (
+      dispatch(fetchPosts(posts.postSort))
+    )
+  }, [dispatch, posts.postSort, posts.postSortByTag]);
 
 
   return (
@@ -54,16 +54,16 @@ export const Home: React.FC = () => {
           >
             <ToggleButton value="new">Новые</ToggleButton>
             <ToggleButton value="popular">Популярные</ToggleButton>
-          </ToggleButtonGroup>
+          </ToggleButtonGroup> */}
 
 
             <PostsBlock
               isPostsLoading={isPostsLoading}
               items={posts.items}
-              curentUserId={curentUserData?._id}
+              currentUserId={currentUserData?._id}
             />
 
-        </Grid>
+        {/* </Grid>
         {hasSideBar && <Grid sm={4} md={3} item>
           <TagsBlock tagSort = {'new'} />
           <TagsBlock tagSort={'popular'} />

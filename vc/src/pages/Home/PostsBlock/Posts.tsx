@@ -1,10 +1,16 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import { Post } from '../Post/Post';
+import {IPost} from '../../../types/data'
 
-export const Posts = ({
+interface IPosts {
+    items: IPost[]
+    currentUserId?: string | null
+}
+
+export const Posts: React.FC<IPosts> = ({
     items,
-    curentUserId,
+    currentUserId,
 }) => {
 
     return (
@@ -15,8 +21,8 @@ export const Posts = ({
             <Post
                 key={index}
                 postItem={obj}
-                commentsCount={3}
-                isEditable={curentUserId === obj.user._id}
+                // commentsCount={3}
+                isEditable={currentUserId === obj.user}
             />
             </Grid>
         )}

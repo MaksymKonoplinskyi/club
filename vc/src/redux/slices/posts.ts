@@ -32,13 +32,15 @@ type PostsState = {
   items: IPost[] | null
   isLoading: boolean
   error: string | null
-  postSort: PostSort
+    postSort: PostSort
+    postSortByTag: string | null
 }
 const initialState: PostsState = {
   items: [],
   isLoading: true,
   error: null,
-  postSort: "new",
+    postSort: "new",
+    postSortByTag: null
 }
 
 const postsSlice = createSlice({
