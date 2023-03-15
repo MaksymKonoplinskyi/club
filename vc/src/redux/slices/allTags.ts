@@ -14,10 +14,7 @@ export const fetchTags = createAsyncThunk<ITag[], TagSort, {}>(
         id: i
       })
     });
-  
-    console.log(data);
-    console.log(resData);
-    
+
     return resData
   }
 )

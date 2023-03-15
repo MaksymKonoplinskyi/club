@@ -2,7 +2,7 @@ import React from "react"
 
 import { useAppDispatch, useAppSelector } from "../../hook"
 import { fetchTags } from "../../redux/slices/allTags"
-// import { TagsSkeleton } from "./TagsSkeleton"
+import { TagsSkeleton } from "./TagsSkeleton"
 import { TagsList } from "./TagsList"
 // import { SideBlock } from "../SideBlock/SideBlock"
 
@@ -20,7 +20,7 @@ export const TagsBlock: React.FC = () => {
 
   return (
     <>
-      <div>TegList</div>
+      <div>TagList</div>
       {/* // <SideBlock
       // title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
       // {tags.isLoading ? (
@@ -29,7 +29,15 @@ export const TagsBlock: React.FC = () => {
       //   <TagsList tagsItems={tags.items} />
       // )}
     // </SideBlock> */}
-      {tags.items ? (
+      {/* {tags.isLoading ? (
+        <TagsSkeleton />
+      ): (
+        tags.items ? (
+          <TagsList tagsItems={tags.items} />
+        ) : <div></div>
+      )} */}
+        
+      {  tags.items ? (
         <TagsList tagsItems={tags.items} />
       ) : <div></div>}
 
