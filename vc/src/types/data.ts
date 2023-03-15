@@ -3,11 +3,11 @@ export interface ITag {
   name: string
 }
 export interface IComment {
-    _id: string
-    text: string
-    user:string
-    post:string
-  }
+  _id: string
+  text: string
+  user: string
+  post: string
+}
 
 export interface IComments {
   items: IComment[]
@@ -15,20 +15,32 @@ export interface IComments {
   editCommentIndex: null
 }
 
-export interface IPostItem {
-    post: IPost
-    isLoading: boolean
+export interface IFullPostItem {
+  post: IFullPost
+  isLoading: boolean
+}
+
+export interface IFullPost {
+  _id: null
+  title: string
+  text: string
+  viewsCount: number
+  commentsCount: number
+  user: string
+  isLoading: boolean
+  imageUrl: string
+  // comments: IComments
+  tags: ITag[]
 }
 
 export interface IPost {
     _id: null
-    title:string
-    text:string
-    viewsCount:number
-    commentsCount:number
-    user:string
+    title: string
+    // text: string
+    viewsCount: number
+    commentsCount: number
+    user: string
     isLoading: boolean
-    imageUrl:string
-    // comments: IComments
+    imageUrl: string
     tags: ITag[]
   }

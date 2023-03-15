@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "../../axios"
-import { IPost, IComment } from "../../types/data"
+import { IFullPost, IComment } from "../../types/data"
 
 // Full Post start
-export const fetchGetFullPost = createAsyncThunk<IPost, string>(
+export const fetchGetFullPost = createAsyncThunk<IFullPost, string>(
   "post/fetchGetFullPost",
   async id => {
     const { data } = await axios.get(`/posts/${id}`)
@@ -11,7 +11,7 @@ export const fetchGetFullPost = createAsyncThunk<IPost, string>(
   }
 )
 
-export const fetchCreateNewPost = createAsyncThunk<IPost, IPost>(
+export const fetchCreateNewPost = createAsyncThunk<IFullPost, IFullPost>(
   "post/fetchCriateNewPost",
   async params => {
     const { data } = await axios.post("/posts", params)
@@ -19,9 +19,9 @@ export const fetchCreateNewPost = createAsyncThunk<IPost, IPost>(
   }
 )
 
-export const fetchEditPost = createAsyncThunk<IPost, IPost>(
+export const fetchEditPost = createAsyncThunk<IFullPost, IFullPost>(
   "post/fetchEditPost",
-  async (patchData: IPost) => {
+  async (patchData: IFullPost) => {
     const { _id } = patchData
     const { data } = await axios.patch(`/posts/${_id}`, patchData)
     return data
@@ -72,7 +72,7 @@ export const fetchRemoveComment = createAsyncThunk<IComment, string>(
 
 // Comments for curent full post end
 type PostState = {
-    currentPostData: IPost | null
+    currentPostData: IFullPost | null
   isLoading: boolean
   error: string | null
   comments: {
@@ -85,7 +85,7 @@ type PostState = {
 
 const initialState: PostState = {
     currentPostData: null,
-  isLoading: false,
+  isLoading: true,
   error: null,
   comments: {
     items: [],
