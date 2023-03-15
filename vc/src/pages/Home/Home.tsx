@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import Grid from '@mui/material/Grid';
-// import { TagsBlock } from '../../components/TagsBlock/TagsBlock';
+import { TagsBlock } from '../../components/TagsBlock/TagsBlock';
 
 // import { fetchPosts, fetchPostsWithTag } from '../../redux/slices/posts';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -70,6 +70,7 @@ export const Home: React.FC  = () => {
           <TagsBlock tagSort={'popular'} />
         </Grid>}
       </Grid> */}
+      <TagsBlock />
     </>
   );
 };

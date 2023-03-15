@@ -1,0 +1,52 @@
+import React from "react"
+// import clsx from 'clsx'
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemButton from "@mui/material/ListItemButton"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import TagIcon from "@mui/icons-material/Tag"
+import ListItemText from "@mui/material/ListItemText"
+import { useDispatch } from "react-redux"
+// import { fetchPostsWithTag } from "../../redux/slices/posts"
+import { useNavigate, useParams } from "react-router-dom"
+
+// import styles from './Tags.module.scss'
+import {ITag} from '../../types/data'
+
+interface TagsListProps {
+  tagsItems: ITag[]
+}
+
+export const TagsList: React.FC<TagsListProps> = (props) => {
+  const {tagsItems} = props
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const { curentSort, tagName} = useParams()
+  const sort = curentSort || 'popular'
+
+  const handleTagClick = (name:string) => {
+    const params = { tagName: name, sort: sort }
+    // dispatch(fetchPostsWithTag(params))
+    navigate(`/tag/${name}/${sort}`)
+  };
+
+  return (
+
+    <List>
+      {tagsItems.map((item:ITag) => (
+        <ListItem key={item.id} value={item.name} disablePadding>
+          <ListItemButton
+            selected={tagName === item.name}
+            onClick={() => handleTagClick(item.name)}
+          >
+            <ListItemIcon >
+              <TagIcon />
+            </ListItemIcon>
+            <ListItemText primary={item.name} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+
+  );
+};

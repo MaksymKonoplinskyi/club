@@ -1,27 +1,32 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
 import axios from "../../axios"
+import {ITag} from '../../types/data'
 
-export const fetchTags = createAsyncThunk<Tag[], void, {}>(
+export const fetchTags = createAsyncThunk<ITag[], TagSort, {}>(
   "posts/fetchTags",
   async tagSort => {
     const { data } = await axios.get(`/tags/${tagSort}`)
     return data
   }
 )
-type Tag = {
-  id: string
-  name: string
-}
+// type Tag = {
+//   id: string
+//   name: string
+// }
+
+type TagSort = 'new' | 'pop'
 
 type TagsState = {
-  items: Tag[]
-  loading: boolean
+  items: ITag[]
+  sort: TagSort
+  isLoading: boolean
   error: string | null
 }
 
 const initialState: TagsState = {
   items: [],
-  loading: false,
+  sort: 'new',
+  isLoading: false,
   error: null,
 }
 
@@ -33,17 +38,17 @@ const tagsSlice = createSlice({
     // Получение тегов
     builder
       .addCase(fetchTags.pending, state => {
-        state.loading = true
+        state.isLoading = true
         state.error = null
       })
       .addCase(fetchTags.fulfilled, (state, action) => {
         state.items = action.payload
-        state.loading = false
+        state.isLoading = false
         state.error = null
       })
       .addCase(fetchTags.rejected, (state) => {
         state.items = []
-        state.loading = false
+        state.isLoading = false
         state.error = "error"
       })
     // [fetchTags.pending]: state => {
@@ -63,3 +68,4 @@ const tagsSlice = createSlice({
 })
 
 export const tagsReducer = tagsSlice.reducer
+
