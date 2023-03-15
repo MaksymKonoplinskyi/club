@@ -22,16 +22,16 @@ export const TagsBlock: React.FC = () => {
     <>
       <div>TegList</div>
       {/* // <SideBlock
-    //   title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
-    //   {tags.isLoading ? (
-    //     // <TagsSkeleton />
-    //   ) : (
-    //     <TagsList tagsItems={tags.items} />
-    //   )}
+      // title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
+      // {tags.isLoading ? (
+      //   // <TagsSkeleton />
+      // ) : (
+      //   <TagsList tagsItems={tags.items} />
+      // )}
     // </SideBlock> */}
       {tags.items ? (
         <TagsList tagsItems={tags.items} />
-      ) : <div>TegList</div>}
+      ) : <div></div>}
 
       
     </>
