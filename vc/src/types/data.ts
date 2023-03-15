@@ -1,7 +1,7 @@
-export interface ITag {
-  id: number
-  name: string
-}
+// export interface ITag {
+//   id: number
+//   name: string
+// }
 export interface IComment {
   _id: string
   text: string
@@ -30,7 +30,7 @@ export interface IFullPost {
   isLoading: boolean
   imageUrl: string
   // comments: IComments
-  tags: ITag[]
+  tags: string[]
 }
 
 export interface IPost {
@@ -39,10 +39,10 @@ export interface IPost {
   text: string
   viewsCount: number
   commentsCount: number
-  user: string
-  isLoading: boolean
+  user: IUser
+  // isLoading: boolean
   imageUrl: string
-  tags: ITag[]
+  tags: string[]
 }
 
 export interface IUser {

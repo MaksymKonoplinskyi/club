@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
 import axios from "../../axios"
-import {ITag} from '../../types/data'
+// import {ITag} from '../../types/data'
 
-export const fetchTags = createAsyncThunk<ITag[], TagSort, {}>(
+export const fetchTags = createAsyncThunk<string[], TagSort, {}>(
   "posts/fetchTags",
   async tagSort => {
     const { data } = await axios.get(`/tags/${tagSort}`)
    
-    const resData: ITag[] = []
-    data.forEach((elm: string, i:number) => {
-      resData.push({
-        name: elm ,
-        id: i
-      })
-    });
+    // const resData: string[] = []
+    // data.forEach((elm: string, i:number) => {
+    //   resData.push({
+    //     name: elm ,
+    //     id: i
+    //   })
+    // });
 
-    return resData
+    return data
   }
 )
 // type Tag = {
@@ -26,7 +26,7 @@ export const fetchTags = createAsyncThunk<ITag[], TagSort, {}>(
 type TagSort = 'new' | 'pop'
 
 type TagsState = {
-  items: ITag[]
+  items: string[]
   sort: TagSort
   isLoading: boolean
   error: string | null

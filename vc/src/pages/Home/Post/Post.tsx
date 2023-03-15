@@ -1,25 +1,23 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import IconButton from '@mui/material/IconButton'
-import DeleteIcon from '@mui/icons-material/Clear'
-import EditIcon from '@mui/icons-material/Edit'
-import styles from './Post.module.scss'
-import { fetchRemovePost } from '../../../redux/slices/posts'
+import React from "react"
+import { useDispatch } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
+import IconButton from "@mui/material/IconButton"
+import DeleteIcon from "@mui/icons-material/Clear"
+import EditIcon from "@mui/icons-material/Edit"
+import styles from "./Post.module.scss"
+import { fetchRemovePost } from "../../../redux/slices/posts"
 // import { PostCreationInfo } from '../../../components/PostInfo/PostCreationInfo'
 // import { CountWithIcon } from '../../../components/PostInfo/CountWithIcon'
 // import { PostsTags } from './PostsTags'
-import { IPost } from '../../../types/data'
+import { IPost } from "../../../types/data"
+// import { REACT_APP_API_URL } from 'process.env';
 
 interface IPostProps {
   postItem: IPost
   isEditable: boolean
 }
 
-export const Post: React.FC<IPostProps> = ({
-  postItem,
-  isEditable,
-}) => {
+export const Post: React.FC<IPostProps> = ({ postItem, isEditable }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -30,11 +28,10 @@ export const Post: React.FC<IPostProps> = ({
   // };
   const onClickPost = () => navigate(`/fullPost/${postItem._id}`)
 
-
   const { viewsCount, commentsCount } = postItem
   const countsData = {
     viewsCount,
-    commentsCount
+    commentsCount,
   }
 
   return (
@@ -42,7 +39,7 @@ export const Post: React.FC<IPostProps> = ({
       {isEditable && (
         <div className={styles.editButtons}>
           <Link to={`/posts/${postItem._id}/edit`}>
-            <IconButton color="primary">
+            <IconButton color='primary'>
               <EditIcon />
             </IconButton>
           </Link>
@@ -75,5 +72,5 @@ export const Post: React.FC<IPostProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

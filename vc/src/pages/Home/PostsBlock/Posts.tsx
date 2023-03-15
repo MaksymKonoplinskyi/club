@@ -22,7 +22,7 @@ export const Posts: React.FC<IPosts> = ({
                 key={obj._id}
                 postItem={obj}
                 // commentsCount={3}
-                isEditable={currentUserId === obj.user}
+                isEditable={currentUserId === obj.user._id}
             />
             </Grid>
         )}

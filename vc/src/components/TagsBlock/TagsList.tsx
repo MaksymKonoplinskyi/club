@@ -11,10 +11,10 @@ import { useAppDispatch } from "../../hook"
 import { useNavigate, useParams } from "react-router-dom"
 
 // import styles from './Tags.module.scss'
-import {ITag} from '../../types/data'
+// import {ITag} from '../../types/data'
 
 interface TagsListProps {
-  tagsItems: ITag[]
+  tagsItems: string[]
 }
 
 export const TagsList: React.FC<TagsListProps> = (props) => {
@@ -34,8 +34,8 @@ export const TagsList: React.FC<TagsListProps> = (props) => {
 
   return (
     <div>
-      {tagsItems.map((item: ITag) => (
-        <p key={item.id}>{item.name}</p>
+      {tagsItems.map((item: string, i : number) => (
+        <p key={i}>{item}</p>
         
          
       ))}
