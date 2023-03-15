@@ -6,7 +6,7 @@ import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import TagIcon from "@mui/icons-material/Tag"
 import ListItemText from "@mui/material/ListItemText"
-import { useDispatch } from "react-redux"
+import { useAppDispatch } from "../../hook"
 // import { fetchPostsWithTag } from "../../redux/slices/posts"
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -19,7 +19,7 @@ interface TagsListProps {
 
 export const TagsList: React.FC<TagsListProps> = (props) => {
   const {tagsItems} = props
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const { curentSort, tagName} = useParams()
   const sort = curentSort || 'popular'
