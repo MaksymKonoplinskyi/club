@@ -60,14 +60,14 @@ app.post('/uploadAvatar', upload.single('image'), (req, res) => {
 app.patch('/patchProfile', checkAuth, UserController.update);
 
 app.get('/tags/new', PostController.getLastTags);
-app.get('/tags/popular', PostController.getPopularTags);
+app.get('/tags/pop', PostController.getPopularTags);
 
 app.get('/posts/sort/:sort', PostController.getAll);
 // app.get('/postsNew', PostController.getAllNew);
 // app.get('/postsPopular', PostController.getAllPopular);
 
 app.get('tags/new', PostController.getLastTags);
-app.get('tags/popular', PostController.getPopularTags);
+app.get('tags/pop', PostController.getPopularTags);
 app.get('/posts/:id', PostController.getOne);
 app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create);
 app.delete('/posts/:id', checkAuth, checkAftorPost, PostController.remove);
