@@ -57,7 +57,7 @@ export const getAll = async (req, res) => {
             case 'new':
                 posts = await PostModel.find().sort({ createdAt: -1 }).populate('user').exec();
                 break;
-            case 'popular':
+            case 'pop':
                 posts = await PostModel.find().sort({ viewsCount: -1 }).populate('user').exec();
                 break;
             default:
@@ -115,7 +115,7 @@ export const getPostsWithTag = async (req, res) => {
                     }
                 ).sort({ createdAt: -1 }).populate('user').exec();
                 break;
-            case 'popular':
+            case 'pop':
                 posts = await PostModel.find(
                     {
                         tags: {
