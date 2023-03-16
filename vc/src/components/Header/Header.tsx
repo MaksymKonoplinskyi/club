@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Header.module.scss';
@@ -7,11 +7,11 @@ import Container from '@mui/material/Container';
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 import { Avatar } from '@mui/material';
 
-export const Header = () => {
-  const dispatch = useDispatch()
-  const isAuth = useSelector(selectIsAuth)
+export const Header: React.FC = () => {
+  const dispatch = useAppDispatch()
+  const isAuth = false // useAppSelector(selectIsAuth)
   const navigate = useNavigate()
-  const avatarUrl = useSelector(state => state.auth.curentUserData?.avatarUrl)
+  const avatarUrl = useAppSelector(state => state.auth.currentUserData?.avatarUrl)
 
 
   const onClickLogout = () => {

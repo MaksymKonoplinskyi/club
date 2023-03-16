@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
-// import { Header } from "./components";
+import { Header } from "./components/Header/Header";
 // import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 import { Home } from "./pages"
 // import React from "react";
@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <>
       <div>
         <BrowserRouter>
-          {/* <Header /> */}
+          <Header />
           <Routes>
             <Route path='/' element={<Home />} />
             {/* <Route path="/:curentSort" element = {<Home />} /> */}

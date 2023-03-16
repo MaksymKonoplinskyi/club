@@ -1,0 +1,37 @@
+.root {
+  width: 400px;
+  padding: 40px 40px 20px 40px;
+  border: 1px solid #dedede;
+  margin: 10px auto;
+
+  .button {
+    margin-bottom: 15px;
+    
+  }
+
+
+  .avatar {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    // padding-bottom: 20px;
+  }
+
+  .buttonSave {
+
+  }
+
+  .buttons {
+    // display: flex;
+
+  }
+
+  .title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+
+}
