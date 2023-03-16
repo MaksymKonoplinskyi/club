@@ -11,7 +11,7 @@ import { fetchRemovePost } from "../../../redux/slices/posts"
 // import { PostsTags } from './PostsTags'
 import { IPost } from "../../../types/data"
 // import { REACT_APP_API_URL } from 'process.env';
-import 'dotenv/config'
+// import 'dotenv/config'
 
 interface IPostProps {
   postItem: IPost
