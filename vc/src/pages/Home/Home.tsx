@@ -1,14 +1,14 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hook';
-// import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid';
 import { TagsBlock } from '../../components/TagsBlock/TagsBlock';
 
-import { fetchPosts, fetchPostsWithTag } from '../../redux/slices/posts';
+import { changeCurrentSort, fetchPosts, fetchPostsWithTag } from '../../redux/slices/posts';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PostsBlock } from './PostsBlock/PostsBlock';
 
-// import ToggleButton from '@mui/material/ToggleButton';
-// import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 // import useMediaQuery from '@mui/material/useMediaQuery'
 
 
@@ -21,16 +21,17 @@ export const Home: React.FC = () => {
 
 
   const isPostsLoading = useAppSelector(state => state.posts.isLoading)
-  //  const postSortByTag = useAppSelector(state => state.posts.postSortByTag)
-  // const { curentSort, tagName } = useParams()
+   const postSortByTag = useAppSelector(state => state.posts.postSortByTag)
+  const { postSort } = useAppSelector(state => state.posts)
 
-  // const handleChangeCurentSort = (e, newSort) => {
-  //   (newSort === 'new') ? (
-  //     navigate(tagName ? `/tag/${tagName}/new` : '/new')
-  //   ) : (
-  //     navigate(tagName ? `/tag/${tagName}/popular` : '/popular')
-  //   )
-  // }
+// handleChangeCurrentSort = function(event: React.MouseEvent<HTMLElement>, value: any) => void
+type ToggleButtonGroupProps = {
+  onChange: (e: React.MouseEvent<HTMLElement>, newSort: string) => void
+}
+
+  const handleChangeCurrentSort: ToggleButtonGroupProps['onChange'] = (e, newSort) => {
+    dispatch(changeCurrentSort(newSort))
+  }
 
   React.useEffect(() => {
     posts.postSortByTag ? (
@@ -43,18 +44,18 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      {/* <Grid container spacing={8} columnSpacing={{ sm: 2, md: 3 }}>
+      <Grid container spacing={8} columnSpacing={{ sm: 2, md: 3 }}>
         <Grid xs={12} sm={8} md={9} columnSpacing={{ xs: 1, sm: 2 }} item>
           <ToggleButtonGroup
             color="primary"
-            value={curentSort}
+            value={postSort}
             exclusive
             fullWidth
-            onChange={handleChangeCurentSort}
+            onChange={handleChangeCurrentSort}
           >
             <ToggleButton value="new">Новые</ToggleButton>
-            <ToggleButton value="popular">Популярные</ToggleButton>
-          </ToggleButtonGroup> */}
+            <ToggleButton value="pop">Популярные</ToggleButton>
+          </ToggleButtonGroup>
 
 
             <PostsBlock
@@ -63,13 +64,13 @@ export const Home: React.FC = () => {
               currentUserId={currentUserData?._id}
             />
 
-        {/* </Grid>
-        {hasSideBar && <Grid sm={4} md={3} item>
-          <TagsBlock tagSort = {'new'} />
-          <TagsBlock tagSort={'popular'} />
+        </Grid>
+        { <Grid sm={4} md={3} item>
+          <TagsBlock />
+          {/* <TagsBlock tagSort={'pop'} /> */}
         </Grid>}
-      </Grid> */}
-      <TagsBlock />
+      </Grid>
+      
       {/* Home */}
     </>
   );
