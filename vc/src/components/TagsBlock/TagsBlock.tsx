@@ -21,25 +21,25 @@ export const TagsBlock: React.FC = () => {
   return (
     <>
       <div>TagList</div>
-      {/* // <SideBlock
-      // title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
-      // {tags.isLoading ? (
-      //   // <TagsSkeleton />
-      // ) : (
-      //   <TagsList tagsItems={tags.items} />
-      // )}
-    // </SideBlock> */}
-      {/* {tags.isLoading ? (
+      {/* <SideBlock
+      title={(tags.sort === 'new') ? 'Недавние тэги' : 'Популярные тэги'}>
+      {tags.isLoading ? (
+        // <TagsSkeleton />
+      ) : (
+        <TagsList tagsItems={tags.items} />
+      )}
+    </SideBlock>  */}
+       {tags.isLoading ? (
         <TagsSkeleton />
       ): (
         tags.items ? (
           <TagsList tagsItems={tags.items} />
         ) : <div></div>
-      )} */}
+      )}
         
-      {  tags.items ? (
+      {/* {  tags.items ? (
         <TagsList tagsItems={tags.items} />
-      ) : <div></div>}
+      ) : <div></div>} */}
 
       
     </>
