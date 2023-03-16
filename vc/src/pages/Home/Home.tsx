@@ -10,7 +10,7 @@ import { PostsBlock } from './PostsBlock/PostsBlock';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 // import useMediaQuery from '@mui/material/useMediaQuery'
-
+// import { PostSort } from "../../types/data"
 
 export const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -21,16 +21,16 @@ export const Home: React.FC = () => {
 
 
   const isPostsLoading = useAppSelector(state => state.posts.isLoading)
-   const postSortByTag = useAppSelector(state => state.posts.postSortByTag)
-  const { postSort } = useAppSelector(state => state.posts)
+   
 
 // handleChangeCurrentSort = function(event: React.MouseEvent<HTMLElement>, value: any) => void
 type ToggleButtonGroupProps = {
-  onChange: (e: React.MouseEvent<HTMLElement>, newSort: string) => void
+  onChange: (e: React.MouseEvent<HTMLElement>, newSort: "new" | "pop") => void
 }
 
-  const handleChangeCurrentSort: ToggleButtonGroupProps['onChange'] = (e, newSort) => {
-    dispatch(changeCurrentSort(newSort))
+  const handleChangeCurrentSort: ToggleButtonGroupProps['onChange'] = (e, value) => {
+    console.log(e,value);
+    // dispatch(changeCurrentSort(value))
   }
 
   React.useEffect(() => {
@@ -47,11 +47,11 @@ type ToggleButtonGroupProps = {
       <Grid container spacing={8} columnSpacing={{ sm: 2, md: 3 }}>
         <Grid xs={12} sm={8} md={9} columnSpacing={{ xs: 1, sm: 2 }} item>
           <ToggleButtonGroup
-            color="primary"
-            value={postSort}
-            exclusive
+            color="standard"
+            value={posts.postSort}
+            exclusive={true}
             fullWidth
-            onChange={handleChangeCurrentSort}
+            onChange={(e,value) => dispatch(changeCurrentSort(value))}
           >
             <ToggleButton value="new">Новые</ToggleButton>
             <ToggleButton value="pop">Популярные</ToggleButton>

@@ -29,7 +29,7 @@ export const fetchRemovePost = createAsyncThunk<IPost[], string>(
 
 
 
-type PostSort = "new" | "pop"
+export type PostSort = "new" | "pop"
 type PostsState = {
   items: IPost[] | null
   isLoading: boolean
@@ -41,7 +41,7 @@ const initialState: PostsState = {
   items: [],
   isLoading: true,
   error: null,
-  postSort: "new",
+  postSort: "pop",
   postSortByTag: null,
 }
 
@@ -54,6 +54,7 @@ const postsSlice = createSlice({
         ...state,
         postSort: action.payload
       }
+      
     }
   },
   extraReducers: builder => {
