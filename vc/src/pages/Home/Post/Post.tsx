@@ -57,7 +57,7 @@ export const Post: React.FC<IPostProps> = ({ postItem, isEditable }) => {
         <img
           onClick={onClickPost}
           className={styles.image}
-          src={`${process.env.REACT_APP_API_URL}${postItem?.imageUrl}`}
+          src={`${import.meta.env.VITE_REACT_APP_API_URL}${postItem?.imageUrl}`}
           alt={postItem.title}
         />
       )}

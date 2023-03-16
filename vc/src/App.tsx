@@ -11,9 +11,8 @@ import { Home } from "./pages"
 
 const App: React.FC = () => {
   // const dispatch = useDispatch()
-  console.log(import.meta.env)
-  console.log(REACT_APP_API_URL)
-  console.log(VITE_REACT_APP_API_URL)
+
+
 
   // React.useEffect(() => {
   //   dispatch(fetchAuthMe())

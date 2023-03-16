@@ -44,7 +44,7 @@ export const Header = () => {
                   onClick={() => navigate('/profile')}
                   className={styles.avatar}
                   src={avatarUrl
-                    ? `${process.env.REACT_APP_API_URL}${avatarUrl}`
+                    ? `${import.meta.env.VITE_REACT_APP_API_URL}${avatarUrl}`
                     : '/noavatar.png'}
                 />
 
