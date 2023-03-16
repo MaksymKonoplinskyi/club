@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "../../axios"
 import { IPost } from "../../types/data"
-
+import { PostSort } from "../../types/data"
 
 export const fetchPosts = createAsyncThunk<IPost[], PostSort>(
   "posts/fetchPosts",
@@ -29,7 +29,7 @@ export const fetchRemovePost = createAsyncThunk<IPost[], string>(
 
 
 
-export type PostSort = "new" | "pop"
+
 type PostsState = {
   items: IPost[] | null
   isLoading: boolean

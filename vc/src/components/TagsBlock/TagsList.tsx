@@ -6,12 +6,13 @@ import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import TagIcon from "@mui/icons-material/Tag"
 import ListItemText from "@mui/material/ListItemText"
-import { useAppDispatch } from "../../hook"
-// import { fetchPostsWithTag } from "../../redux/slices/posts"
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { fetchPostsWithTag } from "../../redux/slices/posts"
 import { useNavigate, useParams } from "react-router-dom"
 
 // import styles from './Tags.module.scss'
 // import {ITag} from '../../types/data'
+import { ISortParams } from "../../types/data"
 
 interface TagsListProps {
   tagsItems: string[]
@@ -21,16 +22,16 @@ export const TagsList: React.FC<TagsListProps> = props => {
   const { tagsItems } = props
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  console.log(tagsItems)
+  // console.log(tagsItems)
 
-  // const { curentSort, tagName} = useParams()
-  // const sort = curentSort || 'popular'
+  const { postSort, postSortByTag} = useAppSelector(state => state.posts)
+  // const sort = currentSort || 'pop'
 
-  // const handleTagClick = (name:string) => {
-  //   const params = { tagName: name, sort: sort }
-  //   dispatch(fetchPostsWithTag(params))
-  //   navigate(`/tag/${name}/${sort}`)
-  // };
+  const handleTagClick = (tagName:string) => {
+    const sortParams: ISortParams = { tagName: tagName, sort: postSort }
+    dispatch(fetchPostsWithTag(sortParams))
+    // navigate(`/tag/${name}/${sort}`)
+  };
 
   return (
     <div>

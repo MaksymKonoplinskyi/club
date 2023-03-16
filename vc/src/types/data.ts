@@ -52,3 +52,10 @@ export interface IUser {
   passwordHash: string
   avatarUrl?: string
 }
+
+export type PostSort = "new" | "pop"
+
+export interface ISortParams {
+  tagName: string,
+  sort: PostSort
+}
