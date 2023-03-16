@@ -17,12 +17,12 @@ interface TagsListProps {
   tagsItems: string[]
 }
 
-export const TagsList: React.FC<TagsListProps> = (props) => {
-  const {tagsItems} = props
+export const TagsList: React.FC<TagsListProps> = props => {
+  const { tagsItems } = props
   const dispatch = useAppDispatch()
-  const navigate = useNavigate();
-  console.log(tagsItems);
-  
+  const navigate = useNavigate()
+  console.log(tagsItems)
+
   // const { curentSort, tagName} = useParams()
   // const sort = curentSort || 'popular'
 
@@ -34,13 +34,11 @@ export const TagsList: React.FC<TagsListProps> = (props) => {
 
   return (
     <div>
-      {tagsItems.map((item: string, i : number) => (
+      {tagsItems.map((item: string, i: number) => (
         <p key={i}>{item}</p>
-        
-         
       ))}
+    </div>
 
-</div>
     // <List>
     //   {tagsItems.map((item:ITag) => (
     //     <ListItem key={item.id} value={item.name} disablePadding>
@@ -48,14 +46,13 @@ export const TagsList: React.FC<TagsListProps> = (props) => {
     //         // selected={tagName === item.name}
     //         // onClick={() => handleTagClick(item.name)}
     //       >
-    //         <ListItemIcon >
-    //           <TagIcon />
-    //         </ListItemIcon>
+    // <ListItemIcon >
+    //   <TagIcon />
+    // </ListItemIcon>
     //         <ListItemText primary={item.name} />
     //       </ListItemButton>
     //     </ListItem>
     //   ))}
     // </List>
-
-  );
-};
+  )
+}
