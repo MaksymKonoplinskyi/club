@@ -1,7 +1,7 @@
 import React from "react"
 import { Posts } from "./Posts"
 
-// import { PostsBlockSkeleton } from "./PostsBlockSkeleton"
+import { PostsBlockSkeleton } from "./PostsBlockSkeleton"
 import {IPost} from '../../../types/data'
 
 interface IPostsBlock {
@@ -15,7 +15,8 @@ export const PostsBlock: React.FC<IPostsBlock> = ({ isPostsLoading, items, curre
   return (
     <>
       {isPostsLoading ? (
-       <div/> // <PostsBlockSkeleton />
+        // <div />
+        <PostsBlockSkeleton />
       ) : (
         items && <Posts items={items} currentUserId={currentUserId} />
       )}

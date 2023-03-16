@@ -23,14 +23,14 @@ export const Home: React.FC = () => {
   const isPostsLoading = useAppSelector(state => state.posts.isLoading)
    
 
-// handleChangeCurrentSort = function(event: React.MouseEvent<HTMLElement>, value: any) => void
+
 type ToggleButtonGroupProps = {
   onChange: (e: React.MouseEvent<HTMLElement>, newSort: "new" | "pop") => void
 }
 
   const handleChangeCurrentSort: ToggleButtonGroupProps['onChange'] = (e, value) => {
     console.log(e,value);
-    // dispatch(changeCurrentSort(value))
+    dispatch(changeCurrentSort(value))
   }
 
   React.useEffect(() => {
@@ -51,7 +51,7 @@ type ToggleButtonGroupProps = {
             value={posts.postSort}
             exclusive={true}
             fullWidth
-            onChange={(e,value) => dispatch(changeCurrentSort(value))}
+            onChange={handleChangeCurrentSort}
           >
             <ToggleButton value="new">Новые</ToggleButton>
             <ToggleButton value="pop">Популярные</ToggleButton>
@@ -70,8 +70,6 @@ type ToggleButtonGroupProps = {
           {/* <TagsBlock tagSort={'pop'} /> */}
         </Grid>}
       </Grid>
-      
-      {/* Home */}
     </>
   );
 };

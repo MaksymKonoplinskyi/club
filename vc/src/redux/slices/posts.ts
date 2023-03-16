@@ -50,11 +50,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     changeCurrentSort(state, action) {
-      state = {
-        ...state,
-        postSort: action.payload
-      }
-      
+      state.postSort = action.payload
     }
   },
   extraReducers: builder => {
