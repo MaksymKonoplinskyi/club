@@ -1,24 +1,21 @@
 import { GoogleLogin, googleLogout } from "@react-oauth/google"
-
+import { useAppDispatch, useAppSelector } from "../../hook"
 import React from "react"
+import { logout, selectIsAuth } from "../../redux/slices/oAuth"
+import {LogInButton} from './LogInButton'
+import {LogOutButton} from './LogOutButton'
 
 export const OauthBlock: React.FC = () => {
-  // const login = useGoogleLogin({
-  //   onSuccess: tokenResponse => console.log(tokenResponse),
-  // })
-
+  const dispatch = useAppDispatch()
+  const isAuth = useAppSelector(state => state.oAuth.isAuth)
   return (
-    <div>
-
-      <GoogleLogin
-        onSuccess={credentialResponse => {
-          console.log(credentialResponse)
-        }}
-        onError={() => {
-          console.log("Login Failed")
-        }}
-        useOneTap
-      />
-    </div>
+    <>
+      {isAuth ? (
+        <LogOutButton/>
+      ): (
+        <LogInButton/>
+        )} 
+ 
+    </>
   )
 }

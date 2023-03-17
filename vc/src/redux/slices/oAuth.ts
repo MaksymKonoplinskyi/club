@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../axios'
 import { IUser } from "../../types/data"
+import { googleLogout } from "@react-oauth/google"
 
 // export const fetchAuth = createAsyncThunk<IUser>('auth/fetchAuth', async (params) => {
 //     const { data } = await axios.post('/auth/login', params)
@@ -44,7 +45,8 @@ const oAuthSlice = createSlice({
       },
       logout: (state) => {
         state.currentUserData =null
-        state.isAuth =false
+        state.isAuth = false
+        googleLogout()
         },
     },
     extraReducers: builder => {
@@ -55,6 +57,6 @@ const oAuthSlice = createSlice({
 
 export const selectIsAuth = (state: OAuthState)=> Boolean(state.isAuth)
 
-export const authReducer = oAuthSlice.reducer
+export const oAuthReducer = oAuthSlice.reducer
 
-export const { logout } = oAuthSlice.actions
+export const {login, logout } = oAuthSlice.actions
