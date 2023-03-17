@@ -6,15 +6,13 @@ import Button from "@mui/material/Button"
 export const LogInButton: React.FC = () => {
   const dispatch = useAppDispatch()
   const google = () => {
-  window.open('http://localhost:4444/auth/google', "_self")
-}
+    window.open("http://localhost:4444/auth/google", "_self")
+  }
 
   return (
     <div>
-<Button onClick={() => dispatch(google)}>
-    Войти
-    </Button>
-      
+      <Button onClick={() => dispatch(google)}>Войти</Button>
+
       {/* <GoogleLogin
         onSuccess={credentialResponse => {
 
