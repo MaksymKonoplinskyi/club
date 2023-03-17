@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux"
 
 import { Header } from "./components/Header/Header";
 // import { Home, FullPost, Registration, AddPost, Login } from "./pages";
-import { Home } from "./pages"
+import { Blog } from "./pages"
+import { Home } from "./pages";
 // import React from "react";
 // import { fetchAuthMe } from "./redux/slices/auth";
 // import { Profile } from "./pages/Profile/Profile";
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/blog' element={<Blog />} />
             {/* <Route path="/:curentSort" element = {<Home />} /> */}
             {/* <Route path="/tag/:tagName/:curentSort" element = {<Home />} /> */}
             {/* <Route path="/fullPost/:id" element = {<FullPost />} /> */}
