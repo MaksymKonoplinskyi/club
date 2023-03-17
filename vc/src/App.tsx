@@ -2,18 +2,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
-import { Header } from "./components/Header/Header";
+import { Header } from "./components/Header/Header"
 // import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 import { Blog } from "./pages"
-import { Home } from "./pages";
+import { Home } from "./pages"
 // import React from "react";
 // import { fetchAuthMe } from "./redux/slices/auth";
 // import { Profile } from "./pages/Profile/Profile";
+import { GoogleOAuthProvider } from "@react-oauth/google"
 
 const App: React.FC = () => {
   // const dispatch = useDispatch()
-
-
 
   // React.useEffect(() => {
   //   dispatch(fetchAuthMe())
@@ -21,7 +20,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div>
+      <GoogleOAuthProvider clientId='803620579002-l53iirinfa71mtdjrn1nmsf8vebeo674.apps.googleusercontent.com'>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -37,7 +36,7 @@ const App: React.FC = () => {
             {/* <Route path="/profile" element = {<Profile/>} /> */}
           </Routes>
         </BrowserRouter>
-      </div>
+      </GoogleOAuthProvider>
     </>
   )
 }
